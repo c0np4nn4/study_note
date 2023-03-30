@@ -18,3 +18,13 @@
 
 (f 123)
 (f -1910)
+
+;;;;
+
+(define fact
+  (lambda (n)
+    (if (= n 0) (+ 1 n))
+    (* n (fact (- n 1)))))
+ 
+(fact 10)
+
