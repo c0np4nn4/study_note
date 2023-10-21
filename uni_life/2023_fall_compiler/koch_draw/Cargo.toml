@@ -1,0 +1,9 @@
+[package]
+name = "koch_compiler"
+version = "0.1.0"
+edition = "2021"
+author = "c0np4nn4"
+
+[dependencies]
+druid = "0.7"
+kurbo = "0.8"
