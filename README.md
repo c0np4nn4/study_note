@@ -10,3 +10,6 @@
   > ***Do not start hacking*** *until you understand the basic principles of Security and Networking*.
 - Network: [youtube](https://www.youtube.com/playlist?list=PLG49S3nxzAnmpdmX7RoTOyuNJQAb-r-gd)
 - Security: [youtube](https://www.youtube.com/playlist?list=PLG49S3nxzAnnVhoAaL4B6aMFDQ8_gdxAy)
+
+## Uni Life
+- Some notes and codes during uni life 
