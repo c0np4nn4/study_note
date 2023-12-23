@@ -24,8 +24,8 @@
 %%
 
 Prg : Dec Prg
-    | MACRO_println '(' STR_LITERAL ')' '\n' { printf("%s\n", $3); return 0;}
-    | MACRO_println '(' STR_LITERAL ',' ID ')' '\n' { 
+    | MACRO_println '(' STR_LITERAL ')' ';' '\n' { printf("%s\n", $3); return 0;}
+    | MACRO_println '(' STR_LITERAL ',' ID ')' ';' '\n' { 
         Data* data = value(table, $5);
         if (data != NULL) {
           char* formatted_string = replace_format_specifier($3, data);
@@ -36,8 +36,8 @@ Prg : Dec Prg
       }
     ;
 
-Dec : LET ID ':' U8 '=' Exp '\n' { entry(table, $2, (Data){.tag=TINT, .ival=$6}); }
-    | LET ID ':' STR '=' STR_LITERAL '\n' { entry(table, $2, (Data){.tag=TSTR, .sval=$6}); }
+Dec : LET ID ':' U8 '=' Exp ';' '\n' { entry(table, $2, (Data){.tag=TINT, .ival=$6}); }
+    | LET ID ':' STR '=' STR_LITERAL ';' '\n' { entry(table, $2, (Data){.tag=TSTR, .sval=$6}); }
     ;
 
 Exp : Exp '+' Term { $$ = $1 + $3; }
