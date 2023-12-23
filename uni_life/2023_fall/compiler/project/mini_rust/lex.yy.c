@@ -370,8 +370,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 26
-#define YY_END_OF_BUFFER 27
+#define YY_NUM_RULES 25
+#define YY_END_OF_BUFFER 26
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -381,11 +381,11 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[50] =
     {   0,
-        0,    0,   27,   25,    2,    3,   25,   10,   11,   21,
-       19,   17,   20,   22,    1,   16,   15,   18,   23,   23,
-       23,   23,   23,   23,   23,   13,   14,    0,   24,   12,
-        1,   23,    4,   23,   23,   23,   23,    6,    5,   23,
-       23,    7,    9,   23,   23,   23,   23,    8,    0
+        0,    0,   26,   24,    2,    2,   24,    9,   10,   20,
+       18,   16,   19,   21,    1,   15,   14,   17,   22,   22,
+       22,   22,   22,   22,   22,   12,   13,    0,   23,   11,
+        1,   22,    3,   22,   22,   22,   22,    5,    4,   22,
+       22,    6,    8,   22,   22,   22,   22,    7,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -479,10 +479,10 @@ static const flex_int16_t yy_chk[97] =
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static const flex_int32_t yy_rule_can_match_eol[27] =
+static const flex_int32_t yy_rule_can_match_eol[26] =
     {   0,
-0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0,     };
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0,     };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -796,132 +796,127 @@ YY_RULE_SETUP
 { yylval.ival=atoi(yytext); return NUM; }
 	YY_BREAK
 case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
 #line 11 "token.l"
 ;
 	YY_BREAK
 case 3:
-/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 12 "token.l"
-{ return NEWLINE; }
+#line 13 "token.l"
+{ return FN; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 14 "token.l"
-{ return FN; }
+{ return LET; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 15 "token.l"
-{ return LET; }
+{ return TYPE_U8; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 16 "token.l"
-{ return TYPE_U8; }
+{ return TYPE_STR; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 17 "token.l"
-{ return TYPE_STR; }
+{ return MACRO_PRINTLN; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 18 "token.l"
-{ return MACRO_PRINTLN; }
+{ return MAIN; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 19 "token.l"
-{ return MAIN; }
+#line 20 "token.l"
+{ return L_PAREN; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 21 "token.l"
-{ return L_PAREN; }
+{ return R_PAREN; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 22 "token.l"
-{ return R_PAREN; }
+{ return ARROW; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 23 "token.l"
-{ return ARROW; }
+{ return L_BRACE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 24 "token.l"
-{ return L_BRACE; }
+{ return R_BRACE; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 25 "token.l"
-{ return R_BRACE; }
+{ return SEMICOLON; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 26 "token.l"
-{ return SEMICOLON; }
+{ return COLON; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 27 "token.l"
-{ return COLON; }
+{ return COMMA; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 28 "token.l"
-{ return COMMA; }
+{ return OP_ASSIGN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 29 "token.l"
-{ return OP_ASSIGN; }
+{ return OP_ADD; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 30 "token.l"
-{ return OP_ADD; }
+{ return OP_SUB; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 31 "token.l"
-{ return OP_SUB; }
+{ return OP_MUL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 32 "token.l"
-{ return OP_MUL; }
+{ return OP_DIV; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 33 "token.l"
-{ return OP_DIV; }
+#line 34 "token.l"
+{ yylval.sval = strdup(yytext); return ID; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 35 "token.l"
-{ yylval.sval = strdup(yytext); return ID; }
+#line 36 "token.l"
+{ yylval.sval = strdup(yytext + 1); yylval.sval[strlen(yylval.sval)-1] = 0; return STR_LITERAL; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 37 "token.l"
-{ yylval.sval = strdup(yytext + 1); yylval.sval[strlen(yylval.sval)-1] = 0; return STR_LITERAL; }
+#line 38 "token.l"
+{ printf("'%c': illegal character\n", yytext[0]); exit(-1); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 39 "token.l"
-{ printf("'%c': illegal character\n", yytext[0]); exit(-1); }
-	YY_BREAK
-case 26:
-YY_RULE_SETUP
-#line 42 "token.l"
+#line 41 "token.l"
 ECHO;
 	YY_BREAK
-#line 925 "lex.yy.c"
+#line 920 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1938,7 +1933,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 42 "token.l"
+#line 41 "token.l"
 
 
 int yywrap() { return 1; }

@@ -54,29 +54,28 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    NEWLINE = 258,                 /* NEWLINE  */
-    FN = 259,                      /* FN  */
-    L_PAREN = 260,                 /* L_PAREN  */
-    R_PAREN = 261,                 /* R_PAREN  */
-    L_BRACE = 262,                 /* L_BRACE  */
-    R_BRACE = 263,                 /* R_BRACE  */
-    MAIN = 264,                    /* MAIN  */
-    LET = 265,                     /* LET  */
-    TYPE_U8 = 266,                 /* TYPE_U8  */
-    TYPE_STR = 267,                /* TYPE_STR  */
-    MACRO_PRINTLN = 268,           /* MACRO_PRINTLN  */
-    ARROW = 269,                   /* ARROW  */
-    SEMICOLON = 270,               /* SEMICOLON  */
-    COLON = 271,                   /* COLON  */
-    COMMA = 272,                   /* COMMA  */
-    OP_ADD = 273,                  /* OP_ADD  */
-    OP_SUB = 274,                  /* OP_SUB  */
-    OP_MUL = 275,                  /* OP_MUL  */
-    OP_DIV = 276,                  /* OP_DIV  */
-    OP_ASSIGN = 277,               /* OP_ASSIGN  */
-    STR_LITERAL = 278,             /* STR_LITERAL  */
-    NUM = 279,                     /* NUM  */
-    ID = 280                       /* ID  */
+    FN = 258,                      /* FN  */
+    L_PAREN = 259,                 /* L_PAREN  */
+    R_PAREN = 260,                 /* R_PAREN  */
+    L_BRACE = 261,                 /* L_BRACE  */
+    R_BRACE = 262,                 /* R_BRACE  */
+    MAIN = 263,                    /* MAIN  */
+    LET = 264,                     /* LET  */
+    TYPE_U8 = 265,                 /* TYPE_U8  */
+    TYPE_STR = 266,                /* TYPE_STR  */
+    MACRO_PRINTLN = 267,           /* MACRO_PRINTLN  */
+    ARROW = 268,                   /* ARROW  */
+    SEMICOLON = 269,               /* SEMICOLON  */
+    COLON = 270,                   /* COLON  */
+    COMMA = 271,                   /* COMMA  */
+    OP_ADD = 272,                  /* OP_ADD  */
+    OP_SUB = 273,                  /* OP_SUB  */
+    OP_MUL = 274,                  /* OP_MUL  */
+    OP_DIV = 275,                  /* OP_DIV  */
+    OP_ASSIGN = 276,               /* OP_ASSIGN  */
+    NUM = 277,                     /* NUM  */
+    ID = 278,                      /* ID  */
+    STR_LITERAL = 279              /* STR_LITERAL  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -85,40 +84,39 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define NEWLINE 258
-#define FN 259
-#define L_PAREN 260
-#define R_PAREN 261
-#define L_BRACE 262
-#define R_BRACE 263
-#define MAIN 264
-#define LET 265
-#define TYPE_U8 266
-#define TYPE_STR 267
-#define MACRO_PRINTLN 268
-#define ARROW 269
-#define SEMICOLON 270
-#define COLON 271
-#define COMMA 272
-#define OP_ADD 273
-#define OP_SUB 274
-#define OP_MUL 275
-#define OP_DIV 276
-#define OP_ASSIGN 277
-#define STR_LITERAL 278
-#define NUM 279
-#define ID 280
+#define FN 258
+#define L_PAREN 259
+#define R_PAREN 260
+#define L_BRACE 261
+#define R_BRACE 262
+#define MAIN 263
+#define LET 264
+#define TYPE_U8 265
+#define TYPE_STR 266
+#define MACRO_PRINTLN 267
+#define ARROW 268
+#define SEMICOLON 269
+#define COLON 270
+#define COMMA 271
+#define OP_ADD 272
+#define OP_SUB 273
+#define OP_MUL 274
+#define OP_DIV 275
+#define OP_ASSIGN 276
+#define NUM 277
+#define ID 278
+#define STR_LITERAL 279
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 11 "parser.y"
+#line 16 "parser.y"
 
   char *sval;
   int ival;
 
-#line 122 "y.tab.h"
+#line 120 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

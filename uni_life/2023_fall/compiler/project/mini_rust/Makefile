@@ -1,7 +1,7 @@
 all: main
 
 y.tab.c: parser.y
-	bison -dy parser.y
+	bison -dy parser.y -Wcounterexamples
 
 y.tab.h: parser.y
 	bison -dy parser.y

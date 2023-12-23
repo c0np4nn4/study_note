@@ -8,8 +8,7 @@
 
 %%
 [0-9]+ { yylval.ival=atoi(yytext); return NUM; }
-[ \t] ;
-\n { return NEWLINE; }
+[ \t\n] ;
 
 "fn" { return FN; }
 "let" { return LET; }

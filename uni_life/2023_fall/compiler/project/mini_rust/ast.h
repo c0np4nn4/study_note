@@ -1,10 +1,21 @@
-typedef enum { TINT, TSYM, TBOP, TUOP } Tag;
-
-typedef struct _Node {
-  Tag kind;
+typedef enum { TNIL, TINT, TSTR, TDUO } Tag;
+typedef char *str;
+typedef struct _Pair *duo;
+typedef struct _Data {
+  Tag tag;
   union {
     int ival;
-    char *sval;
+    str sval;
+    duo pval;
   };
-  struct _Node *son, *bro;
-} Node;
+} Data;
+
+typedef struct _Pair {
+  Data d[2];
+} Pair;
+
+Pair *mkEnv();
+int entry(Pair *, str, Data);
+Data *value(Pair *, str);
+str replace_format_specifier(str, Data *);
+str replace_escapes(str);
