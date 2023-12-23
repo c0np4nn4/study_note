@@ -69,7 +69,6 @@ str replace_format_specifier(str msg, Data *data) {
     break;
   }
   default: {
-    // Handle other cases if necessary
     break;
   }
   }
@@ -77,18 +76,15 @@ str replace_format_specifier(str msg, Data *data) {
   strcat(formatted_string, pos + strlen(placeholder));
 
   return replace_escapes(formatted_string);
-  // return formatted_string;
 }
 
 str replace_escapes(str msg) {
-  // 문자열 내의 \n을 찾아 실제 개행 문자로 대체
   char *p = msg;
   while ((p = strstr(p, "\\n")) != NULL) {
     memmove(p, p + 1, strlen(p + 1) + 1);
     *p = '\n';
   }
 
-  // 문자열 내의 \t를 찾아 실제 탭 문자로 대체
   p = msg;
   while ((p = strstr(p, "\\t")) != NULL) {
     memmove(p, p + 1, strlen(p + 1) + 1);

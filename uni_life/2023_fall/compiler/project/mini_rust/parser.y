@@ -40,7 +40,7 @@ Pgm : Fn_decl Pgm
 Fn_main : FN MAIN L_PAREN R_PAREN L_BRACE Body R_BRACE        
         ;
 
-Fn_decl : FN ID L_PAREN TYPES ARROW TYPES R_PAREN L_BRACE Body R_BRACE {
+Fn_decl : FN ID L_PAREN TYPES ARROW TYPES R_PAREN L_BRACE Body R_BRACE { 
           }
         ;
 
@@ -79,13 +79,15 @@ Params : Param COMMA Params
 Param : Expr { $$ = $1; }
       ;
 
-Stmt_Assign : LET ID COLON TYPE_U8 OP_ASSIGN NUM { 
+Stmt_Assign : LET ID COLON TYPE_U8 OP_ASSIGN Expr { 
+                printf("ID: %d\n", $6);
                 entry(symbol_table, $2, (Data){.tag=TINT, .ival=$6}); 
               }
             | LET ID COLON TYPE_STR OP_ASSIGN STR_LITERAL { 
                 entry(symbol_table, $2, (Data){.tag=TSTR, .sval=$6}); 
               }
             | LET ID COLON TYPE_U8 OP_ASSIGN ID { 
+                printf("ID: %s\n", $6);
                 entry(symbol_table, $2, (Data){.tag=TINT, .ival=value(symbol_table, $6)->ival}); 
               }
             ;
