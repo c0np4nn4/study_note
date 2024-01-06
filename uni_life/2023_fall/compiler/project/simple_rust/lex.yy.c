@@ -514,10 +514,9 @@ char *yytext;
   #include <stdlib.h>
   #include "helper.h"
   #include "y.tab.h"
-  #define Kimminjun BABO
-#line 518 "lex.yy.c"
+#line 517 "lex.yy.c"
 
-#line 520 "lex.yy.c"
+#line 519 "lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
@@ -736,9 +735,9 @@ YY_DECL
 		}
 
 	{
-#line 12 "token.l"
+#line 11 "token.l"
 
-#line 741 "lex.yy.c"
+#line 740 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -807,185 +806,185 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "token.l"
+#line 12 "token.l"
 { yylval.ival=atoi(yytext); return NUM; }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 14 "token.l"
+#line 13 "token.l"
 ;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "token.l"
+#line 15 "token.l"
 { return FN; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "token.l"
+#line 16 "token.l"
 { return LET; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "token.l"
+#line 17 "token.l"
 { return TYPE_I32; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "token.l"
+#line 18 "token.l"
 { return TYPE_STR; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 20 "token.l"
+#line 19 "token.l"
 { return MACRO_PRINTLN; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "token.l"
+#line 20 "token.l"
 { return MAIN; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 23 "token.l"
+#line 22 "token.l"
 { return L_PAREN; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "token.l"
+#line 23 "token.l"
 { return R_PAREN; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 25 "token.l"
+#line 24 "token.l"
 { return ARROW; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 26 "token.l"
+#line 25 "token.l"
 { return L_BRACE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 27 "token.l"
+#line 26 "token.l"
 { return R_BRACE; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 28 "token.l"
+#line 27 "token.l"
 { return SEMICOLON; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 29 "token.l"
+#line 28 "token.l"
 { return COLON; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 30 "token.l"
+#line 29 "token.l"
 { return COMMA; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 31 "token.l"
+#line 30 "token.l"
 { return OP_ASSIGN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 32 "token.l"
+#line 31 "token.l"
 { return OP_ADD; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 33 "token.l"
+#line 32 "token.l"
 { return OP_SUB; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 34 "token.l"
+#line 33 "token.l"
 { return OP_MUL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 35 "token.l"
+#line 34 "token.l"
 { return OP_DIV; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 36 "token.l"
+#line 35 "token.l"
 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 38 "token.l"
+#line 37 "token.l"
 { yylval.sval = strdup(yytext); return ID; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 39 "token.l"
+#line 38 "token.l"
 { yylval.sval = strdup(yytext + 1); yylval.sval[strlen(yylval.sval)-1] = 0; return STR_LITERAL; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 40 "token.l"
+#line 39 "token.l"
 { printf("'%c': illegal character\n", yytext[0]); exit(-1); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 42 "token.l"
+#line 41 "token.l"
 { BEGIN(COMMENT); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 43 "token.l"
+#line 42 "token.l"
 { BEGIN(INITIAL); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 44 "token.l"
+#line 43 "token.l"
 { /* ignore */ }
 	YY_BREAK
 case 29:
 /* rule 29 can match eol */
 YY_RULE_SETUP
-#line 45 "token.l"
+#line 44 "token.l"
 { /* ignore */ }
 	YY_BREAK
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
-#line 46 "token.l"
+#line 45 "token.l"
 { /* ignore */ }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 48 "token.l"
+#line 47 "token.l"
 { BEGIN(CPPCOMMENT); }
 	YY_BREAK
 case 32:
 /* rule 32 can match eol */
 YY_RULE_SETUP
-#line 49 "token.l"
+#line 48 "token.l"
 { BEGIN(INITIAL); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 50 "token.l"
+#line 49 "token.l"
 { /* ignore */ }
 	YY_BREAK
 case 34:
 /* rule 34 can match eol */
 YY_RULE_SETUP
-#line 51 "token.l"
+#line 50 "token.l"
 { BEGIN(INITIAL); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 53 "token.l"
+#line 52 "token.l"
 ECHO;
 	YY_BREAK
-#line 988 "lex.yy.c"
+#line 987 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(COMMENT):
 case YY_STATE_EOF(CPPCOMMENT):
@@ -2004,7 +2003,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 53 "token.l"
+#line 52 "token.l"
 
 
 int yywrap() { return 1; }
