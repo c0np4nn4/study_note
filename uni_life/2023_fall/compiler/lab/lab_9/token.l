@@ -1,7 +1,7 @@
 %{
   #include <stdlib.h>
   #include <string.h>
-  #include "ast.h"
+  #include "help.h"
   #include "y.tab.h"
 %}
 
@@ -18,6 +18,7 @@
 \* {yylval.sval = strdup(yytext); return('*');}
 \/ {yylval.sval = strdup(yytext); return('/');}
 \n return(0);
+
 . { printf("'%c': illegal character\n", yytext[0]); exit(-1); }
 
 %%

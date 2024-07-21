@@ -28,7 +28,6 @@
 [a-z]+ { yylval.sval = strdup(yytext); return ID; }
 \"[^\"\n]*\" { yylval.sval = strdup(yytext + 1); yylval.sval[strlen(yylval.sval)-1] = 0; return STR_LITERAL; }
 
-
 %%
 
 int yywrap() { return 1; }

@@ -54,8 +54,13 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    NUM = 258,                     /* NUM  */
-    ID = 259                       /* ID  */
+    LET = 258,                     /* LET  */
+    U8 = 259,                      /* U8  */
+    STR = 260,                     /* STR  */
+    MACRO_println = 261,           /* MACRO_println  */
+    ID = 262,                      /* ID  */
+    STR_LITERAL = 263,             /* STR_LITERAL  */
+    NUM = 264                      /* NUM  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -64,20 +69,25 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define NUM 258
-#define ID 259
+#define LET 258
+#define U8 259
+#define STR 260
+#define MACRO_println 261
+#define ID 262
+#define STR_LITERAL 263
+#define NUM 264
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 9 "ast.y"
+#line 10 "parser.y"
 
   char *sval;
-  int   ival;
-  Node *pval;
+  int ival;
+  duo pval;
 
-#line 81 "y.tab.h"
+#line 91 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

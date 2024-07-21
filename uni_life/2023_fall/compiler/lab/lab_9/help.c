@@ -1,7 +1,7 @@
+#include "help.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ast.h"
 
 // Function to create a new integer node
 Node *mkIntNode(int n) {

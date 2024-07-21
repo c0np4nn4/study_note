@@ -1,7 +1,7 @@
 %{
 #include <stdio.h>
 #include <ctype.h>
-#include "ast.h"
+#include "help.h"
 int yyerror(const char *msg), yylex();
 Node *Root;
 %}
@@ -21,13 +21,13 @@ Node *Root;
 Prg   : Exp   { Root = $1; }
       ;
 
-Exp   : Exp '+' Term { $$ = mkBopNode("+", $1, $3); }
-      | Exp '-' Term { $$ = mkBopNode("-", $1, $3); }
+Exp   : Exp '+' Term { printf("[op] +\n"); $$ = mkBopNode("+", $1, $3); }
+      | Exp '-' Term { printf("[op] -\n"); $$ = mkBopNode("-", $1, $3); }
       | Term          { $$ = $1; }
       ;
 
-Term  : Term '*' Factor { $$ = mkBopNode("*", $1, $3); }
-      | Term '/' Factor { $$ = mkBopNode("/", $1, $3); }
+Term  : Term '*' Factor { printf("[op] *\n"); $$ = mkBopNode("*", $1, $3); }
+      | Term '/' Factor { printf("[op] /\n"); $$ = mkBopNode("/", $1, $3); }
       | Factor          { $$ = $1; }
       ;
 

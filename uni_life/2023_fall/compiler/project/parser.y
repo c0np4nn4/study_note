@@ -24,7 +24,7 @@
 %%
 
 Prg : Dec Prg
-    | MACRO_println '(' STR_LITERAL ')' ';' '\n' { printf("%s\n", $3); return 0;}
+    | MACRO_println '(' STR_LITERAL ')' ';' { printf("%s\n", $3); return 0;}
     | MACRO_println '(' STR_LITERAL ',' ID ')' ';' '\n' { 
         Data* data = value(table, $5);
         if (data != NULL) {
@@ -61,10 +61,9 @@ Factor  : '(' Exp ')' { $$ = $2; }
 
 int main() {
   table = mkEnv();
-  while (1) {
-    yyparse();
-    puts("\n");
-  }
+
+  yyparse();
+    
   return 0;
 }
 
