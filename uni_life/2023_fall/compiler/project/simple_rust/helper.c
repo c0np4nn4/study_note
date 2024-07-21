@@ -1,4 +1,4 @@
-#include "ast.h"
+#include "helper.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,12 +10,12 @@ Pair *mkEnv() {
   return node;
 }
 
-int entry(Pair *table, str id, Data tint) {
+int entry(Pair *table, str id, Data data) {
   Pair *ptr = table;
 
   while (ptr->d[0].pval != 0) {
     if (strcmp(ptr->d[0].pval->d[0].sval, id) == 0) {
-      ptr->d[0].pval->d[1] = tint;
+      ptr->d[0].pval->d[1] = data;
       return 0;
     }
     ptr = ptr->d[1].pval;
@@ -23,7 +23,7 @@ int entry(Pair *table, str id, Data tint) {
 
   Pair *temp_node = (Pair *)malloc(sizeof(Pair));
   temp_node->d[0] = (Data){.tag = TSTR, .sval = id};
-  temp_node->d[1] = tint;
+  temp_node->d[1] = data;
 
   ptr->d[0].pval = temp_node;
   ptr->d[1].pval = mkEnv();
@@ -75,7 +75,7 @@ str replace_format_specifier(str msg, Data *data) {
 
   strcat(formatted_string, pos + strlen(placeholder));
 
-  return replace_escapes(formatted_string);
+  return formatted_string;
 }
 
 str replace_escapes(str msg) {
@@ -91,5 +91,46 @@ str replace_escapes(str msg) {
     *p = '\t';
   }
 
+  p = msg;
+  while ((p = strstr(p, "\\\"")) != NULL) {
+    memmove(p, p + 1, strlen(p + 1) + 1);
+    *p = '\"';
+  }
+
   return msg;
+}
+
+int transfer_ownership(Pair *table, str new_id, str old_id,
+                       Data *original_data) {
+
+  Pair *new_data = (Pair *)malloc(sizeof(Pair));
+  new_data->d[0] = (Data){.tag = TSTR, .sval = strdup(new_id)};
+
+  switch (original_data->tag) {
+  case TINT: {
+    new_data->d[1].tag = TINT;
+    new_data->d[1].ival = original_data->ival;
+    break;
+  }
+  case TSTR: {
+    new_data->d[1].tag = TSTR;
+    new_data->d[1].sval = original_data->sval;
+    break;
+  }
+  default: {
+    break;
+  }
+  }
+
+  Pair *ptr = table;
+  while (ptr->d[0].pval != 0) {
+    if (strcmp(ptr->d[0].pval->d[0].sval, old_id) == 0) {
+      break;
+    }
+    ptr = ptr->d[1].pval;
+  }
+
+  ptr->d[0].pval = new_data;
+
+  return 0;
 }

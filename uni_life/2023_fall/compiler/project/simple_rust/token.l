@@ -1,10 +1,12 @@
 %{
   #include <stdlib.h>
-  #include "ast.h"
+  #include "helper.h"
   #include "y.tab.h"
 %}
 
 %option yylineno
+%x COMMENT
+%x CPPCOMMENT
 
 %%
 [0-9]+ { yylval.ival=atoi(yytext); return NUM; }
@@ -12,7 +14,7 @@
 
 "fn" { return FN; }
 "let" { return LET; }
-"u8"  { return TYPE_U8; }
+"i32"  { return TYPE_I32; }
 "str" { return TYPE_STR; }
 "println!" { return MACRO_PRINTLN; }
 "main" { return MAIN; }
@@ -30,13 +32,22 @@
 "-"  { return OP_SUB; }
 "*"  { return OP_MUL; }
 "/"  { return OP_DIV; }
+\"
 
-[a-z][a-z_]* { yylval.sval = strdup(yytext); return ID; }
-
+[a-z][a-z_0-9]* { yylval.sval = strdup(yytext); return ID; }
 \"[^\"\n]*\" { yylval.sval = strdup(yytext + 1); yylval.sval[strlen(yylval.sval)-1] = 0; return STR_LITERAL; }
-
 . { printf("'%c': illegal character\n", yytext[0]); exit(-1); }
 
+"/*"            { BEGIN(COMMENT); }
+<COMMENT>"*/"   { BEGIN(INITIAL); }
+<COMMENT>.      { /* ignore */ }
+<COMMENT>\n     { /* ignore */ }
+<COMMENT>\r\n   { /* ignore */ }
+
+"//"            { BEGIN(CPPCOMMENT); }
+<CPPCOMMENT>\n  { BEGIN(INITIAL); }
+<CPPCOMMENT>.   { /* ignore */ }
+<CPPCOMMENT>\r\n { BEGIN(INITIAL); }
 
 %%
 

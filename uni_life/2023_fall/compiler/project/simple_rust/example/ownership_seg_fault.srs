@@ -1,0 +1,9 @@
+fn main() {
+  let old_owner: u32 = 31337;
+
+  let new_owner: u32 = old_owner;
+
+  println!("old_owner: {}", old_owner);
+
+  println!("new_owner: {}", new_owner);
+}

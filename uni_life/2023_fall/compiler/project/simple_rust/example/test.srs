@@ -1,0 +1,15 @@
+fn main() {
+  let calc: i32 = (3 * (10 - 2)) / 6;
+  println!("[1] calc: {}", calc);
+
+  let hello:str = "Hello";
+  let world:str = "World";
+  println!("[2] {}, {}!", hello, world);
+
+  let old_num: i32 = 100;
+  let new_num: i32 = old_num; // old_own cannot be referenced anymore
+
+  let old_str: str = "simple rust";
+  let new_str: str = old_str; // old_str cannot be referenced anymore
+  println!("[3] ownership");
+}

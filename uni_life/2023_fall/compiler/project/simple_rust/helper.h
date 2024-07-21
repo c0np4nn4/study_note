@@ -4,7 +4,7 @@ typedef struct _Pair *duo;
 typedef struct _Data {
   Tag tag;
   union {
-    int ival;
+    signed int ival;
     str sval;
     duo pval;
   };
@@ -19,3 +19,5 @@ int entry(Pair *, str, Data);
 Data *value(Pair *, str);
 str replace_format_specifier(str, Data *);
 str replace_escapes(str);
+int transfer_ownership(Pair *table, str new_id, str old_id,
+                       Data *original_data);
